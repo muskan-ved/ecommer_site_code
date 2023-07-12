@@ -1,14 +1,15 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import Hello from "./pages/hello";
+import Sidebar from "./pages/Sidebar";
 
 const App = () => {
   return (
-    <div>
+    <Sidebar>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/hello" element={<Hello />} />
       </Routes>
-    </div>
+    </Sidebar>
   );
 };
 
