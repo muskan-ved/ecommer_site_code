@@ -11,7 +11,7 @@ export const Menus = [
     subMenus: [
       {
         name: "Site Configuration",
-        path: "/dashboard/services1",
+        path: "/admin/dashboard/siteconfigration",
         icon: RiSettings4Line,
       },
     ],
