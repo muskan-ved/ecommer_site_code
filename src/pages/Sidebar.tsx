@@ -73,7 +73,7 @@ const Sidebar = ({ children }) => {
   return (
     <section className="flex gap-6">
       <div
-        className={`bg-[#0e0e0e] min-h-screen ${
+        className={`bg-[#0e0e0e] min-h-screen z-50 ${
           open ? "w-72" : "w-16"
         }  text-gray-100 px-4`}
         onMouseOver={() => setOpen(true)}
@@ -112,7 +112,7 @@ const Sidebar = ({ children }) => {
                       subMenuText === Menu.name && (
                         <ul className="w-full ml-6 pt-2">
                           {Menu.subMenus.map((subMenuItem, idx) => (
-                            <NavLink to={subMenuItem.linkk} key={idx} >
+                            <NavLink to={subMenuItem.linkk} key={idx}>
                               <li
                                 className={`flex rounded-md p-2  cursor-pointer hover:bg-black text-white text-sm items-center gap-x-4 w-56`}
                               >
