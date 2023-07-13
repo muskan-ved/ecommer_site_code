@@ -1,7 +1,5 @@
 
 import React from "react";
-
-
 export default function ManageEmailContent() {
     return (
         <>
@@ -15,10 +13,10 @@ export default function ManageEmailContent() {
                     <input type="text" id="table-search" className="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items" />
                 </div>
             </div>
-            <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
+            <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-2">
                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr className="border-b border-stroke dark:border-strokedark">
+                        <tr className="border-b border-t border-stroke dark:border-strokedark border-stroke dark:border-strokedark">
                             <th scope="col" className="px-6 py-3">
                                 ID
                             </th>

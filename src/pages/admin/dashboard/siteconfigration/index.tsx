@@ -1,8 +1,8 @@
 import React from 'react';
 import Breadcrumb from '../../../../common/components/breadcrumbs';
 import ManageEmailContent from '../../../../common/components/admin/email_setting';
-import ManageSiteSettings from '../../../../common/components/admin/site_settings';
-import ManagePaymentSettings from '../../../../common/components/admin/site_settings';
+import ManageSiteSetting from '../../../../common/components/admin/site_setting';
+import ManagePaymentSetting from '../../../../common/components/admin/payment_setting';
 const SiteConfigration = () => {
     const [openTab, setOpenTab] = React.useState(1);
     const breadcumbdata =
@@ -14,10 +14,11 @@ const SiteConfigration = () => {
         previous_title_link: "",
         middle_title: "",
         middle_title_link: "",
-        current_title: "SiteConfigration"
+        current_title: "SiteConfigration",
+        breadcrumb_heading: "SITE CONFIGRATION"
     }
     return (
-        <div className="container mx-12">
+        <div className="container mx-12 pr-2">
             <Breadcrumb breadcrumbs={breadcumbdata} />
             <div className="flex flex-wrap mt-4">
                 <div className="w-full">
@@ -87,10 +88,10 @@ const SiteConfigration = () => {
                                     <ManageEmailContent />
                                 </div>
                                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                                    <ManageSiteSettings />
+                                    <ManageSiteSetting />
                                 </div>
                                 <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                                    <ManagePaymentSettings />
+                                    <ManagePaymentSetting />
                                 </div>
                             </div>
                         </div>

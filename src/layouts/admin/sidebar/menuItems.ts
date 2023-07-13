@@ -4,10 +4,10 @@ import { TbReportAnalytics } from "react-icons/tb";
 import { AiOutlineUser } from "react-icons/ai";
 import { SidebarTypes } from "../../../types/layout";
 
-export const Menus:SidebarTypes[] = [
+export const Menus: SidebarTypes[] = [
   {
-    name: "Dashboard", 
-    path: '#',
+    name: "Dashboard",
+    path: "#",
     icon: MdOutlineDashboard,
     subMenus: [
       {
@@ -18,18 +18,18 @@ export const Menus:SidebarTypes[] = [
     ],
   },
   {
-    name: "Users",
+    name: "User",
     icon: AiOutlineUser,
-    path: '#',
+    path: "#",
     subMenus: [
       {
         name: "Users",
-        path: "/users",
+        path: "/admin/users",
         icon: AiOutlineUser,
       },
       {
         name: "Roles",
-        path: "/roles",
+        path: "admin/user/roles",
         icon: RiSettings4Line,
       },
     ],
@@ -37,7 +37,7 @@ export const Menus:SidebarTypes[] = [
   {
     name: "E-commerce",
     icon: TbReportAnalytics,
-    path: '#',
+    path: "#",
     subMenus: [
       {
         name: "Products",
