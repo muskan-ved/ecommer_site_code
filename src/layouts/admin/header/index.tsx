@@ -4,7 +4,7 @@ import DropdownUser from "./dropdownUser";
 export default function index() {
   return (
     <div className="2xl:container ml-8  ">
-      <div className="bg-white rounded shadow-lg py-4 px-7">
+      <div className="bg-white rounded shadow-sm py-4 px-7">
         <nav className="flex justify-between">
           <div className="flex items-center space-x-3 lg:pr-16 pr-6 ">
             <svg

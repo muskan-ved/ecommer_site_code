@@ -7,12 +7,12 @@ import { SidebarTypes } from "../../../types/layout";
 export const Menus:SidebarTypes[] = [
   {
     name: "Dashboard", 
-    path: '',
+    path: '#',
     icon: MdOutlineDashboard,
     subMenus: [
       {
         name: "Site Configuration",
-        path: "/dashboard/services1",
+        path: "/admin/dashboard/siteconfigration",
         icon: RiSettings4Line,
       },
     ],
@@ -20,7 +20,7 @@ export const Menus:SidebarTypes[] = [
   {
     name: "Users",
     icon: AiOutlineUser,
-    path: '',
+    path: '#',
     subMenus: [
       {
         name: "Users",
@@ -37,7 +37,7 @@ export const Menus:SidebarTypes[] = [
   {
     name: "E-commerce",
     icon: TbReportAnalytics,
-    path: '',
+    path: '#',
     subMenus: [
       {
         name: "Products",
