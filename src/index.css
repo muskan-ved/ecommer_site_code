@@ -5,5 +5,5 @@
 @tailwind utilities;
 
 body {
-  @apply font-poppins bg-gray-400;
+  @apply font-poppins bg-gray-100;
 }

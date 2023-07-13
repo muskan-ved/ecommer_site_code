@@ -1,56 +1,66 @@
 import { MdOutlineDashboard } from "react-icons/md";
 import { RiSettings4Line } from "react-icons/ri";
 import { TbReportAnalytics } from "react-icons/tb";
-import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
-import { FiMessageSquare, FiFolder, FiShoppingCart } from "react-icons/fi";
+import { AiOutlineUser } from "react-icons/ai";
 
 export const Menus = [
-  { name: "dashboard", linkk: "/hello", icon: MdOutlineDashboard },
-  { name: "user", linkk: "/", icon: AiOutlineUser },
-  { name: "messages", linkk: "/", icon: FiMessageSquare },
-  { name: "analytics", linkk: "/", icon: TbReportAnalytics, margin: true },
-  { name: "File Manager", linkk: "/", icon: FiFolder },
-  { name: "Cart", linkk: "/", icon: FiShoppingCart },
-  { name: "Saved", linkk: "/", icon: AiOutlineHeart, margin: true },
-  { name: "Setting", linkk: "/", icon: RiSettings4Line },
   {
-    name: "Services",
-    icon: RiSettings4Line,
+    name: "Dashboard", 
+    path: '',
+    icon: MdOutlineDashboard,
     subMenus: [
       {
-        name: "Service 1",
-        linkk: "/services/services1",
-        icon: RiSettings4Line,
-      },
-      {
-        name: "Service 2",
-        linkk: "/services/services2",
-        icon: RiSettings4Line,
-      },
-      {
-        name: "Service 3",
-        linkk: "/services/services3",
+        name: "Site Configuration",
+        path: "/dashboard/services1",
         icon: RiSettings4Line,
       },
     ],
   },
   {
-    name: "Services3343",
-    icon: RiSettings4Line,
+    name: "Users",
+    icon: AiOutlineUser,
+    path: '',
     subMenus: [
       {
-        name: "Services3343 1",
-        linkk: "/Services3343s/Services3343s1",
+        name: "Users",
+        path: "/users",
+        icon: AiOutlineUser,
+      },
+      {
+        name: "Roles",
+        path: "/roles",
+        icon: RiSettings4Line,
+      },
+    ],
+  },
+  {
+    name: "E-commerce",
+    icon: TbReportAnalytics,
+    path: '',
+    subMenus: [
+      {
+        name: "Products",
+        path: "/products",
         icon: RiSettings4Line,
       },
       {
-        name: "Services3343 2",
-        linkk: "/Services3343s/Services3343s2",
+        name: "Resources",
+        path: "/resources",
         icon: RiSettings4Line,
       },
       {
-        name: "Services3343 3",
-        linkk: "/Services3343s/Services3343s3",
+        name: "Coupons",
+        path: "/coupons",
+        icon: RiSettings4Line,
+      },
+      {
+        name: "Subscriptions",
+        path: "/subscriptions",
+        icon: RiSettings4Line,
+      },
+      {
+        name: "Orders",
+        path: "/orders",
         icon: RiSettings4Line,
       },
     ],
