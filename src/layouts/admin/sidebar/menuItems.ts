@@ -2,8 +2,9 @@ import { MdOutlineDashboard } from "react-icons/md";
 import { RiSettings4Line } from "react-icons/ri";
 import { TbReportAnalytics } from "react-icons/tb";
 import { AiOutlineUser } from "react-icons/ai";
+import { SidebarTypes } from "../../../types/layout";
 
-export const Menus = [
+export const Menus:SidebarTypes[] = [
   {
     name: "Dashboard", 
     path: '',
