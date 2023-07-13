@@ -41,27 +41,27 @@ export const Menus:SidebarTypes[] = [
     subMenus: [
       {
         name: "Products",
-        path: "/products",
+        path: "/admin/ecommerce/products",
         icon: RiSettings4Line,
       },
       {
         name: "Resources",
-        path: "/resources",
+        path: "/admin/ecommerce/resources",
         icon: RiSettings4Line,
       },
       {
         name: "Coupons",
-        path: "/coupons",
+        path: "/admin/ecommerce/coupons",
         icon: RiSettings4Line,
       },
       {
         name: "Subscriptions",
-        path: "/subscriptions",
+        path: "/admin/ecommerce/subscriptions",
         icon: RiSettings4Line,
       },
       {
         name: "Orders",
-        path: "/orders",
+        path: "/admin/ecommerce/orders",
         icon: RiSettings4Line,
       },
     ],

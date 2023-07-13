@@ -17,6 +17,7 @@ const SiteConfigration = () => {
         current_title: "SiteConfigration"
     }
     return (
+        
         <div className="container mx-12">
             <Breadcrumb breadcrumbs={breadcumbdata} />
             <div className="flex flex-wrap mt-4">
