@@ -2,11 +2,12 @@ import { MdOutlineDashboard } from "react-icons/md";
 import { RiSettings4Line } from "react-icons/ri";
 import { TbReportAnalytics } from "react-icons/tb";
 import { AiOutlineUser } from "react-icons/ai";
+import { SidebarTypes } from "../../../types/layout";
 
-export const Menus = [
+export const Menus:SidebarTypes[] = [
   {
     name: "Dashboard", 
-    path: '',
+    path: '#',
     icon: MdOutlineDashboard,
     subMenus: [
       {
@@ -19,7 +20,7 @@ export const Menus = [
   {
     name: "Users",
     icon: AiOutlineUser,
-    path: '',
+    path: '#',
     subMenus: [
       {
         name: "Users",
@@ -36,7 +37,7 @@ export const Menus = [
   {
     name: "E-commerce",
     icon: TbReportAnalytics,
-    path: '',
+    path: '#',
     subMenus: [
       {
         name: "Products",

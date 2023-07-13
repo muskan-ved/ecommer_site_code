@@ -17,7 +17,7 @@ const SiteConfigration = () => {
         current_title: "SiteConfigration"
     }
     return (
-        <div className="container mx-auto">
+        <div className="container mx-12">
             <Breadcrumb breadcrumbs={breadcumbdata} />
             <div className="flex flex-wrap mt-4">
                 <div className="w-full">
@@ -27,8 +27,8 @@ const SiteConfigration = () => {
                                 className={
                                     "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
                                     (openTab === 1
-                                        ? "text-white bg-red-600"
-                                        : "text-red-600 bg-white")
+                                        ? "text-white bg-blue-600"
+                                        : "text-blue-600 bg-white")
                                 }
                                 onClick={e => {
                                     e.preventDefault();
@@ -46,8 +46,8 @@ const SiteConfigration = () => {
                                 className={
                                     "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
                                     (openTab === 2
-                                        ? "text-white bg-red-600"
-                                        : "text-red-600 bg-white")
+                                        ? "text-white bg-blue-600"
+                                        : "text-blue-600 bg-white")
                                 }
                                 onClick={e => {
                                     e.preventDefault();
@@ -65,8 +65,8 @@ const SiteConfigration = () => {
                                 className={
                                     "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
                                     (openTab === 3
-                                        ? "text-white bg-red-600"
-                                        : "text-red-600 bg-white")
+                                        ? "text-white bg-blue-600"
+                                        : "text-blue-600 bg-white")
                                 }
                                 onClick={e => {
                                     e.preventDefault();
