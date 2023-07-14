@@ -1,7 +1,7 @@
 import { MdOutlineDashboard } from "react-icons/md";
-import { RiSettings4Line } from "react-icons/ri";
-import { TbReportAnalytics } from "react-icons/tb";
-import { AiOutlineUser } from "react-icons/ai";
+import { RiSettings4Line ,RiUserSettingsLine, RiCouponLine,RiPlayList2Fill,RiListOrdered} from "react-icons/ri";
+import { VscGlobe } from "react-icons/vsc";
+import { AiOutlineUser,AiOutlineDropbox,AiFillSetting } from "react-icons/ai";
 import { SidebarTypes } from "../../../types/layout";
 
 export const Menus: SidebarTypes[] = [
@@ -30,19 +30,29 @@ export const Menus: SidebarTypes[] = [
       {
         name: "Roles",
         path: "admin/user/roles",
-        icon: RiSettings4Line,
+        icon: RiUserSettingsLine,
       },
     ],
   },
   {
     name: "E-commerce",
-    icon: TbReportAnalytics,
+    icon: VscGlobe,
     path: "#",
     subMenus: [
       {
         name: "Products",
         path: "/admin/ecommerce/products",
-        icon: RiSettings4Line,
+        icon: AiOutlineDropbox,
+      },
+      {
+        name: "Coupons",
+        path: "/admin/ecommerce/coupons",
+        icon: RiCouponLine,
+      },
+      {
+        name: "Subscriptions",
+        path: "/admin/ecommerce/subscriptions",
+        icon: RiPlayList2Fill,
       },
       {
         name: "Resources",
@@ -50,19 +60,9 @@ export const Menus: SidebarTypes[] = [
         icon: RiSettings4Line,
       },
       {
-        name: "Coupons",
-        path: "/admin/ecommerce/coupons",
-        icon: RiSettings4Line,
-      },
-      {
-        name: "Subscriptions",
-        path: "/admin/ecommerce/subscriptions",
-        icon: RiSettings4Line,
-      },
-      {
         name: "Orders",
         path: "/admin/ecommerce/orders",
-        icon: RiSettings4Line,
+        icon: RiListOrdered,
       },
     ],
   },

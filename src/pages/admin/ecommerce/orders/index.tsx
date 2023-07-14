@@ -1,7 +1,11 @@
 import React from 'react'
+import { orderBreadcrums } from '../../../../common/components/breadcrumbs/breadcrumbsData'
+import Breadcrumb from '../../../../common/components/breadcrumbs'
 
 const Orders = () => {
   return (
+    <div className="container mx-12 ml-12 mt-4 pr-8 ">
+    <Breadcrumb breadcrumbs={orderBreadcrums} />
     <section className="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
     <div className="mx-auto max-w-screen-xl px-4 lg:px-12">
       {/* <!-- Start coding here --> */}
@@ -997,6 +1001,7 @@ const Orders = () => {
       </div>
     </div>
   </section>
+  </div>
   )
 }
 
