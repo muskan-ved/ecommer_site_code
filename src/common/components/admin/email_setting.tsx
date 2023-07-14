@@ -1,5 +1,7 @@
 
 import React from "react";
+import { AiFillEye, AiOutlineDelete } from "react-icons/ai";
+import { BiEditAlt } from "react-icons/bi";
 export default function ManageEmailContent() {
     return (
         <>
@@ -17,19 +19,19 @@ export default function ManageEmailContent() {
                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr className="border-b border-t border-stroke dark:border-strokedark border-stroke dark:border-strokedark">
-                            <th scope="col" className="px-6 py-3">
+                            <th scope="col" className="px-4 py-3">
                                 ID
                             </th>
-                            <th scope="col" className="px-20 py-3">
+                            <th scope="col" className="px-4 py-3">
                                 E-MAIL TYPE
                             </th>
-                            <th scope="col" className="px-20 py-3">
+                            <th scope="col" className="px-4 py-3">
                                 E-MAIL FROM
                             </th>
-                            <th scope="col" className="px-20 py-3">
+                            <th scope="col" className="px-4 py-3">
                                 E-MAIL SUBJECT
                             </th>
-                            <th scope="col" className="px-20 py-3">
+                            <th scope="col" className="px-4 py-3">
                                 Action
                             </th>
                         </tr>
@@ -39,68 +41,18 @@ export default function ManageEmailContent() {
                             <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 1
                             </th>
-                            <td className="px-20 py-4">
+                            <td className="px-4 py-3">
                                 Forgot_password
                             </td>
-                            <td className="px-20 py-4">
+                            <td className="px-4 py-3">
                                 devendramangoit@gmail.com
                             </td>
-                            <td className="px-20 py-4">
+                            <td className="px-4 py-3">
                                 Reset password request
                             </td>
-                            <td className="flex items-center px-20 py-4 space-x-3">
-                                <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                            </td>
-                        </tr>
-                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                1
-                            </th>
-                            <td className="px-20 py-4">
-                                Forgot_password
-                            </td>
-                            <td className="px-20 py-4">
-                                devendramangoit@gmail.com
-                            </td>
-                            <td className="px-20 py-4">
-                                Reset password request
-                            </td>
-                            <td className="flex items-center px-20 py-4 space-x-3">
-                                <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                            </td>
-                        </tr>
-                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                1
-                            </th>
-                            <td className="px-20 py-4">
-                                Forgot_password
-                            </td>
-                            <td className="px-20 py-4">
-                                devendramangoit@gmail.com
-                            </td>
-                            <td className="px-20 py-4">
-                                Reset password request
-                            </td>
-                            <td className="flex items-center px-20 py-4 space-x-3">
-                                <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                            </td>
-                        </tr>
-                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                1
-                            </th>
-                            <td className="px-20 py-4">
-                                Forgot_password
-                            </td>
-                            <td className="px-20 py-4">
-                                devendramangoit@gmail.com
-                            </td>
-                            <td className="px-20 py-4">
-                                Reset password request
-                            </td>
-                            <td className="flex items-center px-20 py-4 space-x-3">
-                                <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            <td className="flex items-center px-4 py-3 space-x-3">
+                                <button type="button" className="text-yellow-500 bg-white border border-yellow-500 hover:bg-gray-100 font-medium rounded-md text-lg  px-1.5 py-1.5 dark:bg-gray-800"><BiEditAlt /></button>
+                                <button type="button" className="text-blue-600 bg-white border border-blue-600 hover:bg-gray-100 font-medium rounded-md text-lg  px-1.5 py-1.5 dark:bg-gray-800 ml-2"><AiFillEye /></button>
                             </td>
                         </tr>
                     </tbody>
