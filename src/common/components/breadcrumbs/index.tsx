@@ -30,14 +30,8 @@ export default function Breadcrumb(props: any) {
             </div>
           </li>
         </ol>
-        {props?.breadcrumbs?.addbtn === "true" ? (<button type="button" className="flex items-center justify-center text-white bg-blue-600 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none">
-          <svg className="h-3.5 w-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
-          </svg>
-          {props?.breadcrumbs?.addbtn_name}
-        </button>) : ""}
-      </nav>
-      <h2 className="text-1xl mt-1 font-extrabold dark:text-white">{props?.breadcrumbs?.breadcrumb_heading}</h2>
+            </nav>
+      {/* <h2 className="text-1xl mt-1 font-extrabold dark:text-white">{props?.breadcrumbs?.breadcrumb_heading}</h2> */}
     </>
 
   );
