@@ -15,8 +15,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.15",
     "@types/jest": "^29.5.3",
     "@types/node": "^20.4.1",
+    "@uiw/react-codemirror": "^4.21.7",
     "env-cmd": "^10.1.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

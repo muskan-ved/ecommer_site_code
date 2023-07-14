@@ -2,6 +2,7 @@
 import React from "react";
 import { AiFillEye, AiOutlineDelete } from "react-icons/ai";
 import { BiEditAlt } from "react-icons/bi";
+import { Link } from "react-router-dom";
 export default function ManageEmailContent() {
     return (
         <>
@@ -51,8 +52,8 @@ export default function ManageEmailContent() {
                                 Reset password request
                             </td>
                             <td className="flex items-center px-4 py-3 space-x-3">
-                                <button type="button" className="text-yellow-500 bg-white border border-yellow-500 hover:bg-gray-100 font-medium rounded-md text-lg  px-1.5 py-1.5 dark:bg-gray-800"><BiEditAlt /></button>
-                                <button type="button" className="text-blue-600 bg-white border border-blue-600 hover:bg-gray-100 font-medium rounded-md text-lg  px-1.5 py-1.5 dark:bg-gray-800 ml-2"><AiFillEye /></button>
+                                <Link to={"/admin/siteconfigration/editemailcontent/1"}><button type="button" className="text-yellow-500 bg-white border border-yellow-500 hover:bg-gray-100 font-medium rounded-md text-lg  px-1.5 py-1.5 dark:bg-gray-800"><BiEditAlt /></button></Link>
+                                {/* <button type="button" className="text-blue-600 bg-white border border-blue-600 hover:bg-gray-100 font-medium rounded-md text-lg  px-1.5 py-1.5 dark:bg-gray-800 ml-2"><AiFillEye /></button> */}
                             </td>
                         </tr>
                     </tbody>
