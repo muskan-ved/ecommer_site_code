@@ -69,3 +69,12 @@ export const AddUserBreadcrums = {
   middle_title_link: "",
   current_title: "Add User",
 };
+
+export const ViewUserBreadcrums = {
+  previous_title: "User",
+  icons: "../../../../public/icons/user.png",
+  previous_title_link: "/admin/users",
+  middle_title: "",
+  middle_title_link: "",
+  current_title: "Details",
+};
