@@ -14,7 +14,7 @@ const Roles = () => {
     const [edittitle, setEdittitle] = React.useState(false);
 
     const AddRoleModelOpen = (identifier: string, id?: number) => {
-        if (identifier = "edit") {
+        if (identifier === "edit") {
             setEdittitle(true);
         }
         else {
@@ -24,6 +24,7 @@ const Roles = () => {
     }
     const AddRoleModelClose = () => {
         setOpen(false);
+        setEdittitle(false);
     }
 
     //delete user
@@ -36,7 +37,7 @@ const Roles = () => {
     async function deleteUser() {
     }
 
-    console.log(edittitle)
+    console.log("sgfsla", edittitle)
 
     return (
         <>
@@ -49,7 +50,7 @@ const Roles = () => {
                                 All(10)
                             </div>
                             <button
-                                onClick={() => AddRoleModelOpen("")}
+                                onClick={() => AddRoleModelOpen("add")}
                                 type="button"
                                 className="flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none"
                             >
@@ -148,16 +149,20 @@ const Roles = () => {
                                             </svg>
                                         </button>
                                         <div className="px-6 py-6 lg:px-8">
-                                            {edittitle ? (<h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit Role</h3>) : <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add New Role</h3>}
+                                            {edittitle === true ? (<h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit Role</h3>) : <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add New Role</h3>}
                                             <hr />
                                             <form className="space-y-6 mt-5" action="#">
                                                 <div>
                                                     <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role Name</label>
-                                                    <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required />
+                                                    <input type="text"
+                                                        className="w-full px-4 py-4 mt-1.5 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                                        placeholder="email ...." />
                                                 </div>
                                                 <div>
                                                     <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
-                                                    <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                                                    <input type="text"
+                                                        className="w-full px-4 py-4 mt-1.5 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                                        placeholder="email ...." />
                                                 </div>
                                             </form>
                                         </div>
