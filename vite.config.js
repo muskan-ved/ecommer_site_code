@@ -8,4 +8,7 @@ export default defineConfig({
   variants: {
     fill: ['hover', 'focus'], // this line does the trick
   },
+  define: {
+    'process.env': process.env
+  }
 })

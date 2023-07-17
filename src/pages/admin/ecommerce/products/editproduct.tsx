@@ -79,7 +79,7 @@ const EditProduct = () => {
                         <div className="-mx-3 md:flex mb-6">
                             <div className="md:w-1/2 px-3 mb-6 md:mb-0">
                                 <div className="mt-2">
-                                    <label className="block text-sm">
+                                    <label className="block text-sm mb-2">
                                         Short Description
                                     </label>
                                     <CKEditor
@@ -104,7 +104,7 @@ const EditProduct = () => {
                             </div>
                             <div className="md:w-1/2 px-3">
                                 <div className="mt-2">
-                                    <label className="block text-sm">
+                                    <label className="block text-sm mb-2">
                                         Long Description
                                     </label>
                                     <CKEditor

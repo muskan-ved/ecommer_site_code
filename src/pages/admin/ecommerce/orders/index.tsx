@@ -903,11 +903,11 @@ const Orders = () => {
           aria-label="Table navigation"
         >
           <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-            Showing
+            Showing &nbsp;
             <span className="font-semibold text-gray-900 dark:text-white">
-              1-10
+              1-10 &nbsp;
             </span>
-            of
+            of &nbsp;
             <span className="font-semibold text-gray-900 dark:text-white">
               1000
             </span>

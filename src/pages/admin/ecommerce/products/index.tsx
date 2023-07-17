@@ -4,9 +4,7 @@ import { productBreadcrums } from "../../../../common/components/breadcrumbs/bre
 import { Link } from "react-router-dom";
 
 const Products = () => {
-
   return (
-
     <div className="container mx-12 ml-12 mt-4 pr-8 ">
       <Breadcrumb breadcrumbs={productBreadcrums} />
       <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg  mt-4">
@@ -232,7 +230,7 @@ const Products = () => {
             </div>
           </div>
         </div>
-        <div className="overflow-x-auto">
+        <div className="overflow-y-auto">
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
@@ -905,11 +903,11 @@ const Products = () => {
           aria-label="Table navigation"
         >
           <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-            Showing
+            Showing &nbsp;
             <span className="font-semibold text-gray-900 dark:text-white">
-              1-10
+              1-10 &nbsp;
             </span>
-            of
+            of &nbsp;
             <span className="font-semibold text-gray-900 dark:text-white">
               1000
             </span>
@@ -1002,7 +1000,6 @@ const Products = () => {
         </nav>
       </div>
     </div>
-
   );
 };
 

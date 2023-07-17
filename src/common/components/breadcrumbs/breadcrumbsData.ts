@@ -1,3 +1,23 @@
+//dashboard section breadcrumbs
+export const DashboardBreadcums = {
+  previous_title: "Dashboard",
+  icons: "../../../../public/icons/dashboard.png",
+  previous_title_link: "",
+  middle_title: "",
+  middle_title_link: "",
+  current_title: "SiteConfigration",
+  breadcrumb_heading: "SITE CONFIGRATION",
+};
+
+export const EditEmailCntBreadcum = {
+  previous_title: "Dashboard",
+  icons: "../../../../public/icons/dashboard.png",
+  previous_title_link: "/admin/dashboard/siteconfigration",
+  middle_title: "SiteConfigration",
+  middle_title_link: "/admin/dashboard/siteconfigration",
+  current_title: "Edit Email Content",
+};
+
 //user section breadcrumbs
 export const userBreadcrums = {
   previous_title: "User",
@@ -96,4 +116,13 @@ export const orderBreadcrums = {
   middle_title: "",
   middle_title_link: "",
   current_title: "Orders",
+};
+
+export const ViewUserBreadcrums = {
+  previous_title: "User",
+  icons: "../../../../public/icons/user.png",
+  previous_title_link: "/admin/users",
+  middle_title: "",
+  middle_title_link: "",
+  current_title: "Details",
 };

@@ -7,7 +7,7 @@ export default function ManageEmailContent() {
     return (
         <>
             <div className="flex items-center justify-between pb-4">
-                <p className="font-bold">All Email(7)</p>
+                <p className="font-bold text-sm">All Email(7)</p>
                 <label htmlFor="table-search" className="sr-only">Search</label>
                 <div className="relative">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

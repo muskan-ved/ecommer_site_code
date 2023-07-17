@@ -153,7 +153,7 @@ const Users = () => {
                     }><AiOutlineDelete /></button>
                     <Link to={"/admin/user/edituser/1"}>
                       <button type="button" className="text-yellow-500 bg-white border border-yellow-500 hover:bg-gray-100 font-medium rounded-md text-lg  px-1.5 py-1.5 dark:bg-gray-800 ml-2"><BiEditAlt /></button></Link>
-                    <button type="button" className="text-blue-600 bg-white border border-blue-600 hover:bg-gray-100 font-medium rounded-md text-lg  px-1.5 py-1.5 dark:bg-gray-800 ml-2"><AiFillEye /></button>
+                    <Link to="/admin/user/details" ><button type="button" className="text-blue-600 bg-white border border-blue-600 hover:bg-gray-100 font-medium rounded-md text-lg  px-1.5 py-1.5 dark:bg-gray-800 ml-2"><AiFillEye /></button></Link>
                   </td>
                 </tr>
               </tbody>
