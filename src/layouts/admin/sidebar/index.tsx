@@ -29,11 +29,11 @@ const Sidebar = ({ children }) => {
         </div>
 
         <ul className="pt-6 ">
-          {Menus.map((Menu, index) => (
-            <NavLink to={`${Menu.linkk}`} key={index}>
+          {Menus.map((Menu:any, index) => (
+            <NavLink to={`${Menu?.path ? Menu?.path : '#'}`} key={index}>
               <li
                 className={` relative flex flex-wrap rounded-md p-2 cursor-pointer hover:bg-gray-800 text-white text-sm items-center gap-x-4 
-                                ${Menu.margin ? "mt-9" : "mt-2"} `}
+                                "mt-2"`} onClick={() => showSubnav(Menu.name)}
               >
                 <div>{React.createElement(Menu?.icon, { size: "20" })}</div>
                 {open ? <span>{Menu.name}</span> : null}
@@ -42,9 +42,8 @@ const Sidebar = ({ children }) => {
                   <>
                     {open ? (
                       <BsChevronDown
-                        onClick={() => showSubnav(Menu.name)}
-                        className={`${
-                          subMenuOpen &&
+                    
+                        className={`${subMenuOpen &&
                           subMenuText === Menu.name &&
                           " rotate-180"
                         }`}
@@ -57,12 +56,12 @@ const Sidebar = ({ children }) => {
                       subMenuText === Menu.name && (
                         <ul className="w-full ml-6 pt-2">
                           {Menu.subMenus.map((subMenuItem, idx) => (
-                            <NavLink to={subMenuItem.linkk} key={idx}>
+                            <NavLink to={subMenuItem.path ? subMenuItem.path : '#'} key={idx} >
                               <li
                                 className={`flex rounded-md p-2  cursor-pointer hover:bg-black text-white text-sm items-center gap-x-4 w-56`}
                               >
                                 <div>
-                                  {React.createElement(Menu?.icon, {
+                                  {React.createElement(subMenuItem?.icon, {
                                     size: "20",
                                   })}
                                 </div>
