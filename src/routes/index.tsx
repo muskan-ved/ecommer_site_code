@@ -10,6 +10,7 @@ import Coupons from "../pages/admin/ecommerce/coupons";
 import Subscriptions from "../pages/admin/ecommerce/subscriptions";
 import Orders from "../pages/admin/ecommerce/orders";
 import EditEmailContent from "../common/components/admin/edit_email_content";
+import AddUser from "../pages/admin/users/adduser";
 
 const Routing = () => {
   return (
@@ -17,6 +18,8 @@ const Routing = () => {
       <Route path="/admin/dashboard/siteconfigration" element={<SiteConfigration />} />
       <Route path="/admin/users" element={<Users />} />
       <Route path="/admin/user/roles" element={<Roles />} />
+      <Route path="/admin/user/adduser" element={<AddUser />} />
+      <Route path="/admin/user/edituser/:id" element={<AddUser />} />
       <Route path="/admin/dashboard/siteconfigration" element={<SiteConfigration />} />
       <Route path="/admin/siteconfigration/editemailcontent/:id" element={<EditEmailContent />} />
       <Route path="/admin/ecommerce/products" element={<Products />} />
