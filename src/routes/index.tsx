@@ -11,21 +11,35 @@ import Subscriptions from "../pages/admin/ecommerce/subscriptions";
 import Orders from "../pages/admin/ecommerce/orders";
 import EditEmailContent from "../common/components/admin/edit_email_content";
 import AddUser from "../pages/admin/users/adduser";
+import ViewDetail from "../pages/admin/users/details";
 
 const Routing = () => {
   return (
     <Routes>
-      <Route path="/admin/dashboard/siteconfigration" element={<SiteConfigration />} />
+      <Route
+        path="/admin/dashboard/siteconfigration"
+        element={<SiteConfigration />}
+      />
       <Route path="/admin/users" element={<Users />} />
       <Route path="/admin/user/roles" element={<Roles />} />
       <Route path="/admin/user/adduser" element={<AddUser />} />
       <Route path="/admin/user/edituser/:id" element={<AddUser />} />
-      <Route path="/admin/dashboard/siteconfigration" element={<SiteConfigration />} />
-      <Route path="/admin/siteconfigration/editemailcontent/:id" element={<EditEmailContent />} />
+      <Route path="/admin/user/details" element={<ViewDetail />} />
+      <Route
+        path="/admin/dashboard/siteconfigration"
+        element={<SiteConfigration />}
+      />
+      <Route
+        path="/admin/siteconfigration/editemailcontent/:id"
+        element={<EditEmailContent />}
+      />
       <Route path="/admin/ecommerce/products" element={<Products />} />
       <Route path="/admin/ecommerce/resources" element={<Resources />} />
       <Route path="/admin/ecommerce/coupons" element={<Coupons />} />
-      <Route path="/admin/ecommerce/subscriptions" element={<Subscriptions />} />
+      <Route
+        path="/admin/ecommerce/subscriptions"
+        element={<Subscriptions />}
+      />
       <Route path="/admin/ecommerce/orders" element={<Orders />} />
       <Route path="*" element={<Error404 />} />
     </Routes>

@@ -286,13 +286,13 @@ const paginateBack = () => setCurrentPage(currentPage - 1);
               </div>
             </div>
             <div className="flex w-full:1/2 float-right justify-between">
-              <button
+            <Link to={"/admin/user/adduser"}> <button
                 type="button"
                 className="flex w-auto text-white bg-blue-700 mr-3 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none"
               >
                 <RiAddLine className="text-lg mr-1" />
-                Add product
-              </button>
+                Add User
+              </button></Link>
 
               <div className="w-auto">
                 <form className="flex items-center">
@@ -367,12 +367,7 @@ const paginateBack = () => setCurrentPage(currentPage - 1);
                               <BiEditAlt />
                             </button>
                           </Link>
-                          <button
-                            type="button"
-                            className="text-blue-600 bg-white border border-blue-600 hover:bg-gray-100 font-medium rounded-md text-sm  px-1.5 py-1.5 dark:bg-gray-800 ml-2"
-                          >
-                            <AiFillEye />
-                          </button>
+                          <Link to="/admin/user/details" ><button type="button" className="text-blue-600 bg-white border border-blue-600 hover:bg-gray-100 font-medium rounded-md text-lg  px-1.5 py-1.5 dark:bg-gray-800 ml-2"><AiFillEye /></button></Link>
                         </td>
                       </tr>
                     );
