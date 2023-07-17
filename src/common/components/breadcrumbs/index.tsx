@@ -7,7 +7,7 @@ export default function Breadcrumb(props: any) {
         <ol className="inline-flex items-center space-x-1 md:space-x-3">
           <li className="inline-flex items-center">
             <Link to={props?.breadcrumbs?.previous_title_link} className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
-              {props?.breadcrumbs?.icons}
+              <img src={props?.breadcrumbs?.icons} width={'16px'} className="mr-2 mb-1"/>
               {props?.breadcrumbs?.previous_title}
             </Link>
           </li>
@@ -31,7 +31,6 @@ export default function Breadcrumb(props: any) {
           </li>
         </ol>
             </nav>
-      {/* <h2 className="text-1xl mt-1 font-extrabold dark:text-white">{props?.breadcrumbs?.breadcrumb_heading}</h2> */}
     </>
 
   );

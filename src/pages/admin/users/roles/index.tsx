@@ -4,6 +4,7 @@ import { AiOutlineDelete } from 'react-icons/ai'
 import { BiEditAlt } from 'react-icons/bi'
 import { Dialog, Transition } from '@headlessui/react'
 import DeleteConfirmBox from '../../../../common/components/alertmodel';
+import { roleBreadcrums } from '../../../../common/components/breadcrumbs/breadcrumbsData';
 
 
 const Roles = () => {
@@ -11,23 +12,13 @@ const Roles = () => {
     const cancelButtonRef = useRef(null)
     const [deleteConfirmBoxOpen, setdeleteConfirmBoxOpen] = React.useState(false);
     const [edittitle, setEdittitle] = React.useState(false);
-    const breadcumbdata =
-    {
-        previous_title: "User",
-        icons:
-            <svg className='w-3 h-3 mr-2.5' aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" id="person"><g data-name="Layer 2"><path d="M12 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm6 10a1 1 0 0 0 1-1 7 7 0 0 0-14 0 1 1 0 0 0 1 1z" data-name="person"></path></g></svg>,
-        previous_title_link: "",
-        middle_title: "",
-        middle_title_link: "",
-        current_title: "Roles",
-        breadcrumb_heading: "USER ROLES",
-        addbtn: "true",
-        addbtn_name: "Add New Role"
-    }
 
     const AddRoleModelOpen = (identifier: string, id?: number) => {
         if (identifier = "edit") {
             setEdittitle(true);
+        }
+        else {
+            setEdittitle(false);
         }
         setOpen(true);
     }
@@ -45,10 +36,12 @@ const Roles = () => {
     async function deleteUser() {
     }
 
+    console.log(edittitle)
+
     return (
         <>
             <div className="container mx-12 pr-2">
-                <Breadcrumb breadcrumbs={breadcumbdata} />
+                <Breadcrumb breadcrumbs={roleBreadcrums} />
                 <div className="w-full bg-white border border-gray-200 shadow dark:bg-gray-500 dark:border-gray-700 p-2 mt-4 mb-4">
                     <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                         <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
@@ -155,7 +148,7 @@ const Roles = () => {
                                             </svg>
                                         </button>
                                         <div className="px-6 py-6 lg:px-8">
-                                            {edittitle === true ? (<h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit Role</h3>) : <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add New Role</h3>}
+                                            {edittitle ? (<h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit Role</h3>) : <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add New Role</h3>}
                                             <hr />
                                             <form className="space-y-6 mt-5" action="#">
                                                 <div>
