@@ -1,67 +1,68 @@
 import { MdOutlineDashboard } from "react-icons/md";
-import { RiSettings4Line } from "react-icons/ri";
-import { TbReportAnalytics } from "react-icons/tb";
-import { AiOutlineUser } from "react-icons/ai";
+import { RiSettings4Line ,RiUserSettingsLine, RiCouponLine,RiPlayList2Fill,RiListOrdered} from "react-icons/ri";
+import { VscGlobe } from "react-icons/vsc";
+import { AiOutlineUser,AiOutlineDropbox,AiFillSetting } from "react-icons/ai";
+import { SidebarTypes } from "../../../types/layout";
 
-export const Menus = [
+export const Menus: SidebarTypes[] = [
   {
-    name: "Dashboard", 
-    path: '',
+    name: "Dashboard",
+    path: "#",
     icon: MdOutlineDashboard,
     subMenus: [
       {
         name: "Site Configuration",
-        path: "/dashboard/services1",
+        path: "/admin/dashboard/siteconfigration",
         icon: RiSettings4Line,
       },
     ],
   },
   {
-    name: "Users",
+    name: "User",
     icon: AiOutlineUser,
-    path: '',
+    path: "#",
     subMenus: [
       {
         name: "Users",
-        path: "/users",
+        path: "/admin/users",
         icon: AiOutlineUser,
       },
       {
         name: "Roles",
-        path: "/roles",
-        icon: RiSettings4Line,
+        path: "admin/user/roles",
+        icon: RiUserSettingsLine,
       },
     ],
   },
   {
     name: "E-commerce",
-    icon: TbReportAnalytics,
-    path: '',
+    icon: VscGlobe,
+    path: "#",
     subMenus: [
       {
         name: "Products",
-        path: "/products",
-        icon: RiSettings4Line,
-      },
-      {
-        name: "Resources",
-        path: "/resources",
-        icon: RiSettings4Line,
+        path: "/admin/ecommerce/products",
+        icon: AiOutlineDropbox,
       },
       {
         name: "Coupons",
-        path: "/coupons",
-        icon: RiSettings4Line,
+        path: "/admin/ecommerce/coupons",
+        icon: RiCouponLine,
       },
       {
         name: "Subscriptions",
-        path: "/subscriptions",
+        path: "/admin/ecommerce/subscriptions",
+        icon: RiPlayList2Fill,
+      },
+      {
+        name: "Resources",
+        path: "/admin/ecommerce/resources",
         icon: RiSettings4Line,
       },
       {
         name: "Orders",
-        path: "/orders",
-        icon: RiSettings4Line,
+        path: "/admin/ecommerce/orders",
+        icon: RiListOrdered,
       },
     ],
   },

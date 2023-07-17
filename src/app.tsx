@@ -1,15 +1,19 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/admin/dashboard";
 import Sidebar from "./layouts/admin/sidebar";
+import Header from "./layouts/admin/header";
+import Routing from "./routes";
+import { useLocation } from "react-router-dom";
 
 const App = () => {
+  const location:any = useLocation();
   return (
+
+    location.pathname !== "/not-found"  ?
     <Sidebar>
-      <Routes>
-        <Route path="/hello" element={<Dashboard />} />
-      </Routes>
-    </Sidebar>
+      <Header />
+      <Routing />
+    </Sidebar> 
+    : <Routing/>
   );
 };
 
