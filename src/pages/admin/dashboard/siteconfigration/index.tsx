@@ -3,13 +3,14 @@ import Breadcrumb from '../../../../common/components/breadcrumbs';
 import ManageEmailContent from '../../../../common/components/admin/email_setting';
 import ManageSiteSetting from '../../../../common/components/admin/site_setting';
 import ManagePaymentSetting from '../../../../common/components/admin/payment_setting';
-import { DashboardBreadcums } from '../../../../common/components/breadcrumbs/breadcrumbsData';
+import { dashboardBreadcrums } from '../../../../common/components/breadcrumbs/breadcrumbsData';
 const SiteConfigration = () => {
     const [openTab, setOpenTab] = React.useState(1);
+
     return (
-        <div className="container mx-12 pr-2">
-            <Breadcrumb breadcrumbs={DashboardBreadcums} />
-            <div className="flex flex-wrap mt-1">
+        <div className="container mx-12 pr-2 overflow-auto">
+            <Breadcrumb breadcrumbs={dashboardBreadcrums} />
+            <div className="flex flex-wrap mt-4">
                 <div className="w-full">
                     <ul className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row" role="tablist">
                         <li className="-mb-px  mr-2 last:mr-0 flex-auto text-center">

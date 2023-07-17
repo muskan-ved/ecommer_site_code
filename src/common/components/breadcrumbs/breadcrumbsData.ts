@@ -27,6 +27,16 @@ export const userBreadcrums = {
   middle_title_link: "",
   current_title: "Users",
 };
+export const dashboardBreadcrums =
+    {
+        previous_title: "Dashboard",
+        icons:'../../../../public/icons/dashboard.png',
+        previous_title_link: "",
+        middle_title: "",
+        middle_title_link: "",
+        current_title: "SiteConfigration",
+    }
+
 export const roleBreadcrums = {
   previous_title: "User",
   icons: "../../../../public/icons/user.png",
