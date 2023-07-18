@@ -6,13 +6,24 @@ import { Dialog, Transition } from '@headlessui/react'
 import DeleteConfirmBox from '../../../../common/components/alertmodel';
 import { roleBreadcrums } from '../../../../common/components/breadcrumbs/breadcrumbsData';
 import { RolesApis } from '../../../../apis/roles_http_api';
-
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { roleValidations } from '../../../../formvalidations/userformValidation';
+import { ErrorShowing } from '../../../../common/functions/errorshowingfn';
 const Roles = () => {
     const [open, setOpen] = useState(false)
-    const cancelButtonRef = useRef(null)
     const [deleteConfirmBoxOpen, setdeleteConfirmBoxOpen] = React.useState(false);
     const [edittitle, setEdittitle] = React.useState(false);
-
+    useEffect(() => {
+        getRoles();
+    }, [])
+    //get roles
+    const getRoles = () => {
+        RolesApis("GET", "").then((roles) => {
+            console.log(roles)
+        });
+    }
+    //model open
     const AddRoleModelOpen = (identifier: string, id?: number) => {
         if (identifier === "edit") {
             setEdittitle(true);
@@ -22,33 +33,32 @@ const Roles = () => {
         }
         setOpen(true);
     }
+    //model close
     const AddRoleModelClose = () => {
         setOpen(false);
         setEdittitle(false);
     }
-
-    //delete user
+    //delete role
     const [deleteData, setDeleteData] = useState<any>({});
     function openDelete(data: any) {
         setdeleteConfirmBoxOpen(true);
         setDeleteData(data);
     }
-    //delete role
     async function deleteUser() {
     }
 
-    useEffect(() => {
-        getRoles();
-    }, [])
+    //form submitation
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<any>({
+        resolver: yupResolver(roleValidations),
+    });
 
-
-    const getRoles = () => {
-        RolesApis("GET", "").then((roles) => {
-            console.log(roles)
-        });
+    const onSubmit = (data: any) => {
+        alert(JSON.stringify(data))
     }
-
-
 
     return (
         <>
@@ -129,7 +139,7 @@ const Roles = () => {
                 </div>
             </div >
             <Transition.Root show={open} as={Fragment}>
-                <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
+                <Dialog as="div" className="relative z-10" onClose={setOpen}>
                     <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"
@@ -153,45 +163,52 @@ const Roles = () => {
                                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                             >
                                 <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                                    <div className="relative bg-white rounded-lg">
-                                        <button onClick={AddRoleModelClose} type="button" className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="authentication-modal">
-                                            <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                            </svg>
-                                        </button>
-                                        <div className="px-6 py-6 lg:px-8">
-                                            {edittitle === true ? (<h3 className="mb-2 text-xl font-medium text-gray-900 dark:text-white">Edit Role</h3>) : <h3 className="mb-2 text-xl font-medium text-gray-900 dark:text-white">Add New Role</h3>}
-                                            <hr />
-                                            <form className="space-y-6 mt-5" action="#">
-                                                <div>
-                                                    <label htmlFor="email" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Role Name</label>
-                                                    <input type="text"
-                                                        className="w-full px-4 py-4 mt-1.5 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
-                                                        placeholder="Role Name ...." />
+                                    <form onSubmit={handleSubmit(onSubmit)}>
+                                        <div className="relative bg-white rounded-lg">
+                                            <button onClick={AddRoleModelClose} type="button" className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="authentication-modal">
+                                                <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                                </svg>
+                                            </button>
+                                            <div className="px-6 py-6 lg:px-8">
+                                                {edittitle === true ? (<h3 className="mb-2 text-xl font-medium text-gray-900 dark:text-white">Edit Role</h3>) : <h3 className="mb-2 text-xl font-medium text-gray-900 dark:text-white">Add New Role</h3>}
+                                                <hr />
+                                                <div className="space-y-3 mt-5">
+                                                    <div className='h-20'>
+                                                        <label htmlFor="rolename" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white" >Role Name</label>
+                                                        <input
+                                                            type="text"
+                                                            {...register("name")}
+                                                            className="w-full px-4 py-3 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                                            placeholder="Role Name ...." />
+                                                        {errors && errors.name
+                                                            ? ErrorShowing(errors?.name?.message)
+                                                            : ""}
+                                                    </div>
+                                                    <div>
+                                                        <label htmlFor="status" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Status</label>
+                                                        <select id="countries" {...register("status")} className="w-full bg-white px-4 py-3 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600">
+                                                            <option value="1">Active</option>
+                                                            <option value="0">Inactive</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <label htmlFor="password" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Status</label>
-                                                    <input type="text"
-                                                        className="w-full px-4 py-4 mt-1.5 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
-                                                        placeholder="email ...." />
-                                                </div>
-                                            </form>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className=" px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                                        <button className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-800 sm:ml-3 sm:w-auto"
-                                            onClick={() => setOpen(false)}>
-                                            SAVE
-                                        </button>
-                                        <button
-                                            type="button"
-                                            className="inline-flex w-full justify-center rounded-md bg-red-700 px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-800 sm:ml-3 sm:w-auto"
-                                            onClick={() => setOpen(false)}
-                                            ref={cancelButtonRef}
-                                        >
-                                            CANCEL
-                                        </button>
-                                    </div>
+                                        <div className=" px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                            <button className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-800 sm:ml-3 sm:w-auto"
+                                                type="submit">
+                                                SAVE
+                                            </button>
+                                            <button
+                                                type="button"
+                                                className="inline-flex w-full justify-center rounded-md bg-red-700 px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-800 sm:ml-3 sm:w-auto"
+                                                onClick={() => setOpen(false)}
+                                            >
+                                                CANCEL
+                                            </button>
+                                        </div>
+                                    </form>
                                 </Dialog.Panel>
                             </Transition.Child>
                         </div>
