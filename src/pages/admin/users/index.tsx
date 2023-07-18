@@ -4216,22 +4216,17 @@ const Users = () => {
     },
   ];
 
-  // pagination end
-
+  // pagination start
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 10;
   const pageCount = Math.ceil(rowsData.length / itemsPerPage);
   const offset = currentPage * itemsPerPage;
   const currentPageData = rowsData.slice(offset, offset + itemsPerPage);
-
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
   };
-
   const startIndex = offset + 1;
   const endIndex = Math.min(offset + itemsPerPage, rowsData.length);
-  console.log(startIndex, endIndex, offset);
-
   // pagination end
 
   function openDelete(data: any) {
@@ -4239,12 +4234,12 @@ const Users = () => {
     setDeleteData(data);
   }
 
- 
   //delete role
-  async function deleteUser() {}
+  async function deleteUser() { }
+
   return (
     <>
-      <div className="container mx-12 pr-8">
+      <div className="container mx-12 pr-2">
         <Breadcrumb breadcrumbs={userBreadcrums} />
         <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden mt-4">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
@@ -4253,29 +4248,24 @@ const Users = () => {
                 <div className="text-sm font-medium text-center text-gray-500  dark:text-gray-400 dark:border-gray-700">
                   <ul className="flex flex-wrap -mb-px">
                     <li className="mr-2">
-                      <a
-                        href="#"
-                        className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                      >
-                        All (30)
-                      </a>
+                      <a href="general" className=
+                        "inline-block p-2 border-b-2 rounded-t-lg hover:text-blue-600 hover:border-blue-600"
+                        onClick={e => {
+                          e.preventDefault();
+                          //setOpenTab(1);
+                        }}>All(10)</a>
                     </li>
                     <li className="mr-2">
-                      <a
-                        href="#"
-                        className="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500"
-                        aria-current="page"
-                      >
-                        Active(13)
-                      </a>
+                      <a href="#" className="inline-block p-2 border-b-2 rounded-t-lg hover:text-blue-600 hover:border-blue-600" aria-current="page" onClick={e => {
+                        e.preventDefault();
+                        //setOpenTab(2);
+                      }}>Active(20)</a>
                     </li>
                     <li className="mr-2">
-                      <a
-                        href="#"
-                        className="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                      >
-                        Inactive(17)
-                      </a>
+                      <a href="#" className="inline-block p-2 border-b-2  rounded-t-lg hover:text-blue-600 hover:border-blue-600" onClick={e => {
+                        e.preventDefault();
+                        //setOpenTab(3);
+                      }}>InActive(20)</a>
                     </li>
                   </ul>
                 </div>
@@ -4292,7 +4282,6 @@ const Users = () => {
                   Add User
                 </button>
               </Link>
-
               <div className="w-auto">
                 <form className="flex items-center">
                   <label htmlFor="simple-search" className="sr-only">
@@ -4315,32 +4304,32 @@ const Users = () => {
             </div>
           </div>
           <div className="">
-          <div className="flex flex-wrap justify-end mr-4 mb-2">
-            <div className="m-2">
-              <p className="text-xs text-gray-700">
-                Showing
-                <span className="font-medium"> {startIndex} </span>
-                to
-                <span className="font-medium"> {endIndex} </span>
-                of
-                <span className="font-medium"> {rowsData?.length} </span>
-                results
-              </p>
+            <div className="flex flex-wrap justify-end mr-4">
+              <div className="m-2">
+                <p className="text-xs text-gray-700">
+                  Showing
+                  <span className="font-medium"> {startIndex} </span>
+                  to
+                  <span className="font-medium"> {endIndex} </span>
+                  of
+                  <span className="font-medium"> {rowsData?.length} </span>
+                  results
+                </p>
+              </div>
+              <ReactPaginate
+                previousLabel="< "
+                nextLabel=" >"
+                breakLabel="..."
+                breakClassName={"break-me"}
+                pageCount={pageCount}
+                marginPagesDisplayed={1}
+                pageRangeDisplayed={1}
+                onPageChange={handlePageChange}
+                containerClassName="pagination"
+                activeClassName="active"
+                renderOnZeroPageCount={null}
+              />
             </div>
-            <ReactPaginate
-              previousLabel="< "
-              nextLabel=" >"
-              breakLabel="..."
-              breakClassName={"break-me"}
-              pageCount={pageCount}
-              marginPagesDisplayed={1}
-              pageRangeDisplayed={1}
-              onPageChange={handlePageChange}
-              containerClassName="pagination"
-              activeClassName="active"
-              renderOnZeroPageCount={null}
-            />
-          </div>
           </div>
           <div className="overflow-x-auto ">
             <table className="w-full sm:bg-white rounded-lg overflow-hidden  my-5 text-gray-500 dark:text-gray-400">
