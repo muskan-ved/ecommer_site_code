@@ -1,11 +1,11 @@
-import React, { Fragment, useRef, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 import Breadcrumb from '../../../../common/components/breadcrumbs';
 import { AiOutlineDelete } from 'react-icons/ai'
 import { BiEditAlt } from 'react-icons/bi'
 import { Dialog, Transition } from '@headlessui/react'
 import DeleteConfirmBox from '../../../../common/components/alertmodel';
 import { roleBreadcrums } from '../../../../common/components/breadcrumbs/breadcrumbsData';
-
+import { RolesApis } from '../../../../apis/roles_http_api';
 
 const Roles = () => {
     const [open, setOpen] = useState(false)
@@ -37,7 +37,18 @@ const Roles = () => {
     async function deleteUser() {
     }
 
-    console.log("sgfsla", edittitle)
+    useEffect(() => {
+        getRoles();
+    }, [])
+
+
+    const getRoles = () => {
+        RolesApis("GET", "").then((roles) => {
+            console.log(roles)
+        });
+    }
+
+
 
     return (
         <>
@@ -46,7 +57,7 @@ const Roles = () => {
                 <div className="w-full bg-white border border-gray-200 shadow dark:bg-gray-500 dark:border-gray-700 p-2 mt-4 mb-4">
                     <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                         <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
-                            <div className="w-full md:w-1/2">
+                            <div className="w-full text-sm md:w-1/2">
                                 All(10)
                             </div>
                             <button
@@ -149,17 +160,17 @@ const Roles = () => {
                                             </svg>
                                         </button>
                                         <div className="px-6 py-6 lg:px-8">
-                                            {edittitle === true ? (<h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit Role</h3>) : <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add New Role</h3>}
+                                            {edittitle === true ? (<h3 className="mb-2 text-xl font-medium text-gray-900 dark:text-white">Edit Role</h3>) : <h3 className="mb-2 text-xl font-medium text-gray-900 dark:text-white">Add New Role</h3>}
                                             <hr />
                                             <form className="space-y-6 mt-5" action="#">
                                                 <div>
-                                                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role Name</label>
+                                                    <label htmlFor="email" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Role Name</label>
                                                     <input type="text"
                                                         className="w-full px-4 py-4 mt-1.5 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
-                                                        placeholder="email ...." />
+                                                        placeholder="Role Name ...." />
                                                 </div>
                                                 <div>
-                                                    <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
+                                                    <label htmlFor="password" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Status</label>
                                                     <input type="text"
                                                         className="w-full px-4 py-4 mt-1.5 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
                                                         placeholder="email ...." />
@@ -168,13 +179,13 @@ const Roles = () => {
                                         </div>
                                     </div>
                                     <div className=" px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                                        <button className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-800 sm:ml-3 sm:w-auto"
+                                        <button className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-800 sm:ml-3 sm:w-auto"
                                             onClick={() => setOpen(false)}>
-                                            ADD
+                                            SAVE
                                         </button>
                                         <button
                                             type="button"
-                                            className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-800 sm:ml-3 sm:w-auto"
+                                            className="inline-flex w-full justify-center rounded-md bg-red-700 px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-800 sm:ml-3 sm:w-auto"
                                             onClick={() => setOpen(false)}
                                             ref={cancelButtonRef}
                                         >
