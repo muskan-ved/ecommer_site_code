@@ -1,7 +1,5 @@
 import React from 'react';
 import Breadcrumb from '../../../common/components/breadcrumbs';
-import { AiFillEye, AiOutlineDelete } from 'react-icons/ai'
-import { BiEditAlt } from 'react-icons/bi'
 import { AddUserBreadcrums } from '../../../common/components/breadcrumbs/breadcrumbsData';
 const AddUser = () => {
 

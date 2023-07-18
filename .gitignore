@@ -8,6 +8,7 @@ node_modules/
 dist/
 build/
 .vscode/
+package-lock.json
 
 # Compiled Java class files
 *.class
@@ -41,6 +42,7 @@ Thumbs.db
 *.app
 *.exe
 *.war
+
 
 # Large media files
 *.mp4
