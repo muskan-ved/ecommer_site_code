@@ -9,7 +9,7 @@ import { RolesApis } from '../../../../apis/roles_http_api';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { roleValidations } from '../../../../formvalidations/userformValidation';
-import { ErrorShowing } from '../../../../common/functions/errorshowingfn';
+import { ErrorShowing } from '../../../../common/components/errorshowingcmp/errorshowingcmp';
 const Roles = () => {
     const [open, setOpen] = useState(false)
     const [deleteConfirmBoxOpen, setdeleteConfirmBoxOpen] = React.useState(false);

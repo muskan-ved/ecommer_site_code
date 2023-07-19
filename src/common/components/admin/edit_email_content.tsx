@@ -3,14 +3,28 @@ import React, { useState } from "react";
 import Breadcrumb from "../breadcrumbs";
 import CodeMirror from '@uiw/react-codemirror';
 import { EditEmailCntBreadcum } from "../breadcrumbs/breadcrumbsData";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { emailcontentValidations } from "../../../formvalidations/siteconfigValidation";
+import { ErrorAlertShowing, ErrorShowing } from "../errorshowingcmp/errorshowingcmp";
+import { Link } from "react-router-dom";
 
 export default function EditEmailContent() {
   const [openTab, setOpenTab] = React.useState(1);
   const [emailBodyText, setEmailBodyText] = useState<string>("");
-
-
-  const handleemailbodytextchange = () => {
-
+  //form submitation
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<any>({
+    resolver: yupResolver(emailcontentValidations),
+  });
+  const onSubmit = (data: any) => {
+    alert(JSON.stringify(data))
+  }
+  const handleemailbodytextchange = (e: any) => {
+    setEmailBodyText(e)
   }
 
   return (
@@ -53,51 +67,68 @@ export default function EditEmailContent() {
             </ul>
           </div>
           <div className="px-4 py-5 flex-auto">
-            <div className="tab-content tab-space">
-              <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                <div className="flex flex-wrap -mx-3 mb-6">
-                  <div className="w-full px-3">
-                    <label className="block text-black-100 text-sm mb-1" htmlFor="grid-email-type">
-                      E-Mail Type
-                    </label>
-                    <input className="w-full text-black-400 text-sm border border-gray-400 rounded py-3 px-4 mb-1 leading-tight focus:outline-none focus:bg-white" id="grid-email-type" type="text" placeholder="email..." />
-                    <p className="text-red-500 text-xs">Please fill out this field.</p>
+            {emailBodyText === "" ? ErrorAlertShowing("Email body text feild is required") : ""}
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="tab-content tab-space">
+                <div className={openTab === 1 ? "block" : "hidden"} id="link1">
+                  <div className="flex flex-wrap -mx-3 mb-6">
+                    <div className="w-full px-3 h-20">
+                      <label className="block text-black-100 text-sm mb-1" htmlFor="grid-email-type">
+                        E-Mail Type
+                      </label>
+                      <select {...register("emailtype")} className="w-full text-gray-600 text-xs border border-gray-400 rounded py-3 px-4 mb-1 leading-tight focus:outline-none focus:bg-white bg-white focus:ring-1 focus:ring-blue-600">
+                        <option value="">Select Email Type</option>
+                        <option value="welcome_email">Canada</option>
+                        <option value="forgat_password">United States</option>
+                      </select>
+                      {errors && errors.emailtype
+                        ? ErrorShowing(errors?.emailtype?.message)
+                        : ""}
+                    </div>
+                    <div className="w-full px-3 mt-5  h-20">
+                      <label className="block text-black-100 text-sm mb-1" htmlFor="grid-email-type">
+                        E-Mail From
+                      </label>
+                      <input className="w-full text-gray-700  text-xs border border-gray-400 rounded py-3 px-4 mb-1 leading-tight focus:outline-none focus:bg-white focus:ring-1 focus:ring-blue-600" type="text" {...register("emailfrom")} placeholder="From Email..." />
+                      {errors && errors.emailfrom
+                        ? ErrorShowing(errors?.emailfrom?.message)
+                        : ""}
+                    </div>
+                    <div className="w-full px-3 mt-5  h-20">
+                      <label className="block text-black-100 text-sm mb-1" htmlFor="grid-email-type">
+                        E-Mail Subject
+                      </label>
+                      <input className="w-full text-gray-700 text-xs  border border-gray-400 rounded py-3 px-4 mb-1 leading-tight focus:outline-none focus:bg-white focus:ring-1 focus:ring-blue-600" type="text" {...register("emailsubject")} placeholder="Email Subject..." />
+                      {errors && errors.emailsubject
+                        ? ErrorShowing(errors?.emailsubject?.message)
+                        : ""}
+                    </div>
                   </div>
-                  <div className="w-full px-3 mt-5">
-                    <label className="block text-black-100 text-sm mb-1" htmlFor="grid-email-type">
-                      E-mail From
-                    </label>
-                    <input className="w-full  text-black-400 text-sm border border-gray-400 rounded py-3 px-4 mb-1 leading-tight focus:outline-none focus:bg-white" id="grid-email-type" type="text" placeholder="email..." />
-                    <p className="text-red-500 text-xs">Please fill out this field.</p>
-                  </div>
-                  <div className="w-full px-3 mt-5">
-                    <label className="block text-black-100 text-sm mb-1" htmlFor="grid-email-type">
-                      E-mail Subject
-                    </label>
-                    <input className="w-full  text-black-400 text-sm border border-gray-400 rounded py-3 px-4 mb-1 leading-tight focus:outline-none focus:bg-white" id="grid-email-type" type="text" placeholder="email..." />
-                    <p className="text-red-500 text-xs">Please fill out this field.</p>
+                </div>
+                <div className={openTab === 2 ? "block" : "hidden"} id="link2">
+                  <CodeMirror
+                    value={emailBodyText}
+                    height="315px"
+                    className="text-sm font-medium text-gray-800"
+                    onChange={handleemailbodytextchange}
+                  />
+                </div>
+                <div className={openTab === 3 ? "block" : "hidden"} id="link3">
+                  <div className="emailbodytext text-sm font-medium">
+                    <div dangerouslySetInnerHTML={{ __html: emailBodyText }}></div>
                   </div>
                 </div>
               </div>
-              <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                <CodeMirror
-                  value={emailBodyText}
-                  height="307px"
-                  onChange={handleemailbodytextchange}
-                />
+              <div className="flex mt-5">
+                <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800  focus:outline-none font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">UPDATE</button>
+                <Link to={"/admin/dashboard/siteconfigration"}>
+                  <button type="button" className=" ml-5 text-white bg-red-700 hover:bg-red-800  focus:outline-none  font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">CANCEL</button>
+                </Link>
               </div>
-              <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                <div dangerouslySetInnerHTML={{ __html: emailBodyText }}></div>
-              </div>
-            </div>
-            <div className="flex mt-5">
-              <button type="button" className="text-white bg-blue-700 hover:bg-blue-800  focus:outline-none font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">UPDATE</button>
-              <button type="button" className=" ml-5 text-white bg-red-700 hover:bg-red-800  focus:outline-none  font-medium rounded-md text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">CANCEL</button>
-            </div>
+            </form>
           </div>
         </div>
       </div >
-
     </>
   );
 }

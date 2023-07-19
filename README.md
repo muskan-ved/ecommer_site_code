@@ -1,6 +1,13 @@
 #### project configration
 
-pure react with typescript and material tailwind css
+node version : 18.12.1
+npm version : 8.19.2
+
+#### installation create react app
+
+react+vite
+typescript  
+tailwind css
 
 #### start server on development face
 
@@ -17,8 +24,36 @@ npm run build:staging
 npm run start:production
 npm run build:production
 
-#### Important note
+##### other third party library
 
-following camelCase structure
+#### react routing
 
+react-router-dom
 
+##### API Calling
+
+axios
+
+#### form validation and submittion
+
+react hook form + yup + hookform/resolvers
+
+#### icons
+
+react-icons
+
+#### pagination
+
+react-paginate
+
+#### code editor
+
+react-codemirror
+
+#### env management
+
+env-cmd
+
+#### alerts and toaster
+
+react-toastify

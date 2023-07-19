@@ -4366,7 +4366,7 @@ const Users = () => {
                         <td className="px-4 py-3 xs:px-3 xs:py-1 font-normal text-sm	">
                           {rowData.status}
                         </td>
-                        <td className="px-4 py-3 xs:px-3 xs:py-1 font-normal text-sm	">
+                        <td className="px-4 py-3 xs:px-3 xs:py-1 font-normal text-sm">
                           <button
                             type="button"
                             className="text-red-600 bg-white border border-red-400 hover:bg-gray-100 font-sm rounded-md text-sm px-1.5 py-1.5 dark:bg-gray-800"
