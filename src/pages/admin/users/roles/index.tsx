@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
 import Breadcrumb from '../../../../common/components/breadcrumbs';
 import { AiOutlineDelete } from 'react-icons/ai'
-import { BiEditAlt } from 'react-icons/bi'
+import { BiEditAlt, BiSearch } from 'react-icons/bi'
 import { Dialog, Transition } from '@headlessui/react'
 import DeleteConfirmBox from '../../../../common/components/alertmodel';
 import { roleBreadcrums } from '../../../../common/components/breadcrumbs/breadcrumbsData';
@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { roleValidations } from '../../../../formvalidations/userformValidation';
 import { ErrorShowing } from '../../../../common/components/errorshowingcmp/errorshowingcmp';
+import { RiAddLine } from 'react-icons/ri';
 const Roles = () => {
     const [open, setOpen] = useState(false)
     const [deleteConfirmBoxOpen, setdeleteConfirmBoxOpen] = React.useState(false);
@@ -68,38 +69,34 @@ const Roles = () => {
                     <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                         <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                             <div className="w-full text-sm md:w-1/2">
-                                All(10)
+                                <p className="font-bold text-sm">All(7)</p>
                             </div>
-                            <button
-                                onClick={() => AddRoleModelOpen("add")}
-                                type="button"
-                                className="flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none"
-                            >
-                                <svg
-                                    className="h-3.5 w-3.5 mr-2"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true"
+                            <div className="flex w-full:1/2 float-right justify-between">
+                                <button
+                                    onClick={() => AddRoleModelOpen("add")}
+                                    type="button"
+                                    className="flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none"
                                 >
-                                    <path
-                                        clip-rule="evenodd"
-                                        fill-rule="evenodd"
-                                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                                    />
-                                </svg>
-                                Add New Role
-                            </button>
-                            <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
+                                    <RiAddLine className="text-lg mr-1" />
+                                    Add New Role
+                                </button>
+                            </div>
+                            <div className="w-auto">
                                 <form className="flex items-center">
-                                    <label htmlFor="simple-search" className="sr-only">Search</label>
+                                    <label htmlFor="simple-search" className="sr-only">
+                                        Search
+                                    </label>
                                     <div className="relative w-full">
                                         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                            <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-                                            </svg>
+                                            <BiSearch className=" mr-1 text-gray-500" />
                                         </div>
-                                        <input type="text" id="simple-search" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-blue-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-blue-500" placeholder="Search" />
+                                        <input
+                                            type="text"
+                                            id="simple-search"
+                                            className="bg-gray-50 border border-gray-300 text-gray-900 text-xs text-gray-800 rounded-lg focus:border-primary-500 block w-md pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white  dark:focus:border-primary-500"
+                                            placeholder="Search"
+                                            required
+                                        />
                                     </div>
                                 </form>
                             </div>
@@ -119,11 +116,11 @@ const Roles = () => {
                                 </thead>
                                 <tbody>
                                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                        <th scope="row" className="px-4 py-3">1</th>
-                                        <td className="px-4 py-3">Shubham Kumar Jaiswal</td>
-                                        <td className="px-4 py-3">Active</td>
-                                        <td className="px-4 py-3">10</td>
-                                        <td className="px-4 py-3">
+                                        <th scope="row" className="px-4 py-3 xs:px-3 xs:py-1 font-normal text-sm">1</th>
+                                        <td className="px-4 py-3 xs:px-3 xs:py-1 font-normal text-sm">Shubham Kumar Jaiswal</td>
+                                        <td className="px-4 py-3 xs:px-3 xs:py-1 font-normal text-sm">Active</td>
+                                        <td className="px-4 py-3 xs:px-3 xs:py-1 font-normal text-sm">10</td>
+                                        <td className="px-4 py-3 xs:px-3 xs:py-1 font-normal text-sm">
                                             <button type="button" className="text-red-600 bg-white border border-red-400 hover:bg-gray-100 font-lg rounded-md text-lg px-1.5 py-1.5 dark:bg-gray-800" onClick={() =>
                                                 openDelete(
                                                     { id: 1 }
@@ -179,7 +176,7 @@ const Roles = () => {
                                                         <input
                                                             type="text"
                                                             {...register("name")}
-                                                            className="w-full px-4 py-3 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                                            className="w-full px-4 py-3 mt-1 text-gray-700 text-xs border border-gray-400 rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
                                                             placeholder="Role Name ...." />
                                                         {errors && errors.name
                                                             ? ErrorShowing(errors?.name?.message)
@@ -187,7 +184,7 @@ const Roles = () => {
                                                     </div>
                                                     <div>
                                                         <label htmlFor="status" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Status</label>
-                                                        <select id="countries" {...register("status")} className="w-full bg-white px-4 py-3 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600">
+                                                        <select id="countries" {...register("status")} className="w-full bg-white px-4 py-3 mt-1 text-gray-700 text-sm border border-gray-400 rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600">
                                                             <option value="1">Active</option>
                                                             <option value="0">Inactive</option>
                                                         </select>

@@ -4299,7 +4299,7 @@ const Products = () => {
                     <input
                       type="text"
                       id="simple-search"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-primary-500 block w-md pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white  dark:focus:border-primary-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-xs text-gray-800 rounded-lg focus:border-primary-500 block w-md pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white  dark:focus:border-primary-500"
                       placeholder="Search"
                       required
                     />

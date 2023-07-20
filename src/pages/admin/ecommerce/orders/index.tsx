@@ -4240,18 +4240,7 @@ const Orders = () => {
           <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
             <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
               <div className="flex items-center space-x-3 w-full md:w-auto">
-                <div className="text-sm font-medium text-center text-gray-500  dark:text-gray-400 dark:border-gray-700">
-                  <ul className="flex flex-wrap -mb-px">
-                    <li className="mr-2">
-                      <a href="general" className=
-                        "inline-block p-2 border-b-2 rounded-t-lg hover:text-blue-600 hover:border-blue-600"
-                        onClick={e => {
-                          e.preventDefault();
-                          //setOpenTab(1);
-                        }}>All(10)</a>
-                    </li>
-                  </ul>
-                </div>
+                <p className="font-bold text-sm">All Order(7)</p>
               </div>
             </div>
             <div className="flex w-full:1/2 float-right justify-between">
@@ -4267,7 +4256,7 @@ const Orders = () => {
                     <input
                       type="text"
                       id="simple-search"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-primary-500 block w-md pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white  dark:focus:border-primary-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:border-primary-500 block w-md pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white  dark:focus:border-primary-500"
                       placeholder="Search"
                       required
                     />
