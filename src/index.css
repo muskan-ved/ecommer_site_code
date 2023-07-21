@@ -83,3 +83,15 @@ td:not(:last-child) {
   border: 1px solid #ccc;
   overflow: auto;
 }
+
+.img_wrp {
+  display: inline-block;
+  position: relative;
+  padding: 10px;
+}
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: red;
+}

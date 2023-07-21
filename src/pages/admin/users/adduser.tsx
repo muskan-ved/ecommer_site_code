@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Breadcrumb from '../../../common/components/breadcrumbs';
 import { AddUserBreadcrums } from '../../../common/components/breadcrumbs/breadcrumbsData';
 import { useForm } from 'react-hook-form';
@@ -6,7 +6,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { adduserValidations } from '../../../formvalidations/userformValidation';
 import { ErrorShowing } from '../../../common/components/errorshowingcmp/errorshowingcmp';
 import { Link } from 'react-router-dom';
+import { RiCloseCircleFill } from 'react-icons/ri';
 const AddUser = () => {
+    const [profilepic, setprofilepic] = useState('')
     const {
         register,
         handleSubmit,
@@ -14,6 +16,21 @@ const AddUser = () => {
     } = useForm<any>({
         resolver: yupResolver(adduserValidations),
     });
+
+    const handleimagechange = (e: any) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+            setprofilepic(e.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+
+    const resetprofilepic = () => {
+        setprofilepic("");
+    }
+
+
     const onSubmit = (data: any) => {
         alert(JSON.stringify(data))
     }
@@ -114,7 +131,7 @@ const AddUser = () => {
                                     <label className="block text-sm">
                                         Gender
                                     </label>
-                                    <select className="w-full bg-white px-4 py-3 mt-1.5 text-gray-700 text-sm border border-gray-400 rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600" id="location">
+                                    <select  {...register("gender")} className="w-full bg-white px-4 py-3 mt-1.5 text-gray-700 text-sm border border-gray-400 rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600" id="location">
                                         <option>Male</option>
                                         <option>Female</option>
                                     </select>
@@ -123,10 +140,29 @@ const AddUser = () => {
                                     <label className="block text-sm">
                                         User Role
                                     </label>
-                                    <select className="w-full bg-white px-4 py-3 mt-1.5 text-gray-700 text-sm border border-gray-400 rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600" id="location">
+                                    <select  {...register("userrole")} className="w-full bg-white px-4 py-3 mt-1.5 text-gray-700 text-sm border border-gray-400 rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600" id="location">
                                         <option>Admin</option>
                                         <option>Staffer</option>
                                     </select>
+                                </div>
+                                <div className="md:w-1/3 px-3 mb-6 md:mb-0">
+                                    <label className="block text-sm">
+                                        Profile Pic
+                                    </label>
+                                    <div className="flex items-center justify-center w-full mt-1.5">
+                                        <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-12 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                            {profilepic ? <div className="img_wrp ">
+                                                <img className="object-cover h-8 w-15" src={profilepic} />
+                                                <div onClick={resetprofilepic} className="absolute top-0 right-0 text-red-600	 "><RiCloseCircleFill /></div>
+                                            </div> : <div className="flex flex-col items-center justify-center">
+                                                <svg className="w-8 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                                </svg>
+                                                <p className="text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Click to upload</span> (SVG, PNG, JPG, JPEG or GIF)</p>
+                                            </div>}
+                                            <input id="dropzone-file" type="file" accept=".gif,.jpg,.jpeg,.png,.svg"  {...register("profilepic")} onChange={handleimagechange} className="hidden" />
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                             <div className="-mx-3 md:flex mb-6">
@@ -134,7 +170,7 @@ const AddUser = () => {
                                     <label className="block text-sm">
                                         Country
                                     </label>
-                                    <select className="w-full bg-white px-4 py-3 mt-1.5 text-gray-700 text-sm border border-gray-400 rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600" id="location">
+                                    <select  {...register("country")} className="w-full bg-white px-4 py-3 mt-1.5 text-gray-700 text-sm border border-gray-400 rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600" id="location">
                                         <option>India</option>
                                         <option>US</option>
                                         <option>UK</option>
@@ -144,7 +180,7 @@ const AddUser = () => {
                                     <label className="block text-sm">
                                         State
                                     </label>
-                                    <select className="w-full bg-white px-4 py-3 mt-1.5 text-gray-700 text-sm border border-gray-400 rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600" id="location">
+                                    <select  {...register("state")} className="w-full bg-white px-4 py-3 mt-1.5 text-gray-700 text-sm border border-gray-400 rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600" id="location">
                                         <option>MP</option>
                                         <option>UP</option>
                                         <option>CG</option>
@@ -154,7 +190,7 @@ const AddUser = () => {
                                     <label className="block text-sm">
                                         City
                                     </label>
-                                    <select className="w-full bg-white px-4 py-3 mt-1.5 text-gray-700 text-sm border border-gray-400 rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600" id="location">
+                                    <select  {...register("city")} className="w-full bg-white px-4 py-3 mt-1.5 text-gray-700 text-sm border border-gray-400 rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600" id="location">
                                         <option>REWA</option>
                                         <option>BHOPAL</option>
                                         <option>INDORE</option>
@@ -164,8 +200,8 @@ const AddUser = () => {
                                     <label className="block text-sm">
                                         Pin Code
                                     </label>
-                                    <input type="text"
-                                        className="w-full px-4 py-3 mt-1.5 text-gray-700 text-xs border border-gray-400 rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                    <input type="text"  {...register("pincode")}
+                                        className="w-full px-4 py-3.5 mt-1.5 text-gray-700 text-xs border border-gray-400 rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
                                         placeholder="Pincode...." />
                                 </div>
                             </div>
