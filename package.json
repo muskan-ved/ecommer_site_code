@@ -19,6 +19,7 @@
     "@ckeditor/ckeditor5-react": "^6.1.0",
     "@headlessui/react": "^1.7.15",
     "@hookform/resolvers": "^3.1.1",
+    "@sanity/client": "^6.2.0",
     "@types/jest": "^29.5.3",
     "@types/node": "^20.4.1",
     "@uiw/react-codemirror": "^4.21.7",

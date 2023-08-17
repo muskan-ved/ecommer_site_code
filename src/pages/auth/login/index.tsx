@@ -49,7 +49,6 @@ export default function Login() {
                       id={field.id}
                       name={field.name}
                       type={field.type}
-                      isRequired={field.isRequired}
                       placeholder={field.placeholder}
                     />
                   ))}

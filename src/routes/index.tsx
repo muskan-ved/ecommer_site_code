@@ -28,6 +28,7 @@ import ResourcesDetails from "../pages/admin/ecommerce/resources/resourcedetails
 import OrderDetail from "../pages/admin/ecommerce/orders/orderdetails";
 import Login from "../pages/auth/login";
 import Register from "../pages/auth/register";
+import Reset from "../pages/auth/resetpassword";
 
 const Routing = () => {
   return (
@@ -74,7 +75,7 @@ const Routing = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/forgotpassword" element={<Login />} />
-      <Route path="/resetpassword" element={<Login />} />
+      <Route path="/resetpassword" element={<Reset />} />
       {/* If not match route */}
       <Route path="*" element={<Error404 />} />
     </Routes>

@@ -6,11 +6,10 @@ import Input from "../../../common/components/auth/input";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { authValidations } from "../../../formvalidations/authValidation";
-import { InputWithIcon } from "../../../common/components/auth/select";
 
-const fields: any = signupFields;
-let fieldsState = {};
-fields.forEach((field: any) => (fieldsState[field.id] = ""));
+// const fields: any = signupFields;
+// let fieldsState = {};
+// fields.forEach((field: any) => (fieldsState[field.id] = ""));
 
 const Register = () => {
 
@@ -22,28 +21,10 @@ const Register = () => {
         resolver: yupResolver(authValidations),
       });
 console.log(errors)
-  const [loginState, setLoginState] = useState(fieldsState);
-
-//   const handleChange = (e: any) => {
-//     setLoginState({ ...loginState, [e.target.id]: e.target.value });
-    
-//   };
 
   const onSubmit = (e: any) => {
-    console.log(e, "ere", loginState);
-    // e.preventDefault();
-    // authenticateUser();
+    console.log(e, "ere","4334");
   };
-
-  //Handle Login API Integration here
-//   const authenticateUser = () => {};
-
-
-
-
-// const onSubmit = (data: any) => {
-//     alert(JSON.stringify(data))
-// }
 
   return (
     <div className="m-14 flex flex-col justify-center items-center">
@@ -58,7 +39,7 @@ console.log(errors)
               linkUrl="/login"
             />
             <form  onSubmit={handleSubmit(onSubmit)}>
-                {fields.map((field: any) => (
+                {signupFields.map((field: any) => (
                   <Input
                     key={field.id}
                     // handleChange={handleChange}

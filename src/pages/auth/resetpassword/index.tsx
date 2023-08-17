@@ -40,22 +40,18 @@ const Reset = () => {
               <div className="-space-y-px ">
                 {fields.map((field: any) => (
                   <Input
-                    key={field.id}
-                    handleChange={handleChange}
-                    value={loginState[field.id]}
-                    labelText={field.labelText}
-                    labelhtmlFor={field.labelFor}
-                    id={field.id}
-                    name={field.name}
-                    type={field.type}
-                    isRequired={field.isRequired}
-                    placeholder={field.placeholder}
-                    min={field?.min}
-                    max={field?.max}
-                    maxLength={field?.maxLength}
-                    minLength={field?.minLength}
-                    options={field.options}
-                    customClass={field.type === "number" && "remove-arrow"}
+                  key={field.id}
+                  // handleChange={handleChange}
+                  labelText={field.labelText}
+                  labelhtmlFor={field.labelFor}
+                  id={field.id}
+                  // register={register}
+                  name={field.name}
+                  type={field.type}
+                  placeholder={field.placeholder}
+                  options={field.options}
+                  // errors={errors}
+                  customClass={field.type === "number" && "remove-arrow"}
                   />
                 ))}
               </div>
